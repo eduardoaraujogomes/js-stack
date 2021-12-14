@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
       route.handler(req, res);
     }
   } else {
-    res.writeHead(404, { 'Content-Type': 'text/htnl' });
+    res.writeHead(404, { 'Content-Type': 'text/html' });
     res.end(`Cannot ${req.method} ${parsedUrl.pathname}`);
   }
 });
