@@ -14,3 +14,15 @@ const find = array.find((product) => product.price > 1000);
 const findIndex = array.findIndex((product) => product.name === 'Magic Mouse');
 console.log({ findIndex });
 console.log('Produto:', array[findIndex]);
+
+// .some
+//verifica se algum elemento do array bate com a condição
+//retorna um boolean
+const some = array.some((product) => product.price < 1000);
+console.log({ some });
+
+//.every
+//verifica se todos os elementos do array cumpre a condição
+//retorna um boolean
+const every = array.every((product) => product.price >= 1000);
+console.log({ every });
