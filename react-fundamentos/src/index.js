@@ -1,6 +1,7 @@
-const user = {};
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-// Usando o comando para transpilar o código para funcionar em qualquer versão do node
-//yarn babel src -d build 
-// Optional chaining
-console.log(user?.address?.street);
+ReactDOM.render(
+  <h1 id="title">Olá Mundo!</h1>,
+  document.getElementById('root')
+);
