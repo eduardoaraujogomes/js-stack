@@ -36,3 +36,10 @@ const map = array.map((product) => ({
 }));
 
 console.log({ map });
+
+// .filter
+// retorna um novo array com os elementos que atendem a condição
+
+const filter = array.filter((product) => product.quantity > 1);
+
+console.log({ filter });
