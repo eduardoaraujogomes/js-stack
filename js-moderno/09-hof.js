@@ -43,3 +43,11 @@ console.log({ map });
 const filter = array.filter((product) => product.quantity > 1);
 
 console.log({ filter });
+
+// .reduce
+// retorna um valor único com base no array
+const reduce = array.reduce((accumulator, { price, quantity }) => {
+  return accumulator + (price * quantity);
+}, 0);
+
+console.log({ reduce });
