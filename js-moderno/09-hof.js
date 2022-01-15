@@ -26,3 +26,13 @@ console.log({ some });
 //retorna um boolean
 const every = array.every((product) => product.price >= 1000);
 console.log({ every });
+
+// .map
+// retorna um novo array com os elementos transformados e com a mesma quantidade de posições
+
+const map = array.map((product) => ({
+  ...product,
+  subtotal: product.quantity * product.price
+}));
+
+console.log({ map });
