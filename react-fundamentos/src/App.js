@@ -1,6 +1,8 @@
-import React, { useState, createContext } from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Post from './Post';
+
+import { ThemeProvider } from './ThemeContext';
 
 //Props(Propriedades) - São dados que um componente pai passa para um componente filho.
 //Props são apenas read only, ou seja, não podemos alterar o valor de uma propriedade.
@@ -10,7 +12,7 @@ import Post from './Post';
 // porém alguns formatos ele não sabe o que fazer e pode quebrar.
 
 //a context serve para que componentes filhos possam acessar o estado do componente pai.
-export const ThemeContext = createContext('dark');
+
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
   //O estado é um objeto que armazena informações que podem ser alteradas.
   //O React sabe que o estado mudou e vai renderizar novamente a tela.
 
-  const [theme, setTheme] = useState('dark');
+
 
 
   const [posts, setPosts] = useState([
@@ -37,12 +39,6 @@ function App() {
     },
   ]);
 
-  function handleToggleTheme() {
-    setTheme((prevState) => (
-      prevState === 'dark'
-        ? 'light'
-        : 'dark'));
-  }
 
   //prevState é o estado anterior, ou seja, o estado anterior antes de atualizar o estado.
   //prevState é utilizado, para evitar inconsistências no front-end.
@@ -68,10 +64,8 @@ function App() {
 
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <Header
-        onToggleTheme={handleToggleTheme}
-      >
+    <ThemeProvider>
+      <Header>
         <h2>Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
@@ -85,7 +79,7 @@ function App() {
           post={post}
         />
       ))}
-    </ThemeContext.Provider>
+    </ThemeProvider>
 
   );
 };
