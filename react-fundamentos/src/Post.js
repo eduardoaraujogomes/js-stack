@@ -39,6 +39,7 @@ export default function Post(props) {
     <>
       <article>
         <PostHeader
+          theme={props.theme}
           onRemove={props.onRemove}
           post={{
             id: props.post.id,
@@ -56,6 +57,7 @@ export default function Post(props) {
 }
 
 Post.propTypes = {
+  theme: PropTypes.string.isRequired,
   onRemove: PropTypes.func.isRequired,
   post: PropTypes.shape({
     id: PropTypes.number.isRequired,

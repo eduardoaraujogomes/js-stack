@@ -10,11 +10,15 @@ import Post from './Post';
 //toda vez que a gente coloca um array dentro do jsx ele vai tentar pegar e por na tela
 // porém alguns formatos ele não sabe o que fazer e pode quebrar.
 
+
 function App() {
 
   //Sempre que você quiser que o React renderize/Atualize algo em tela, você precisa de um estado.
   //O estado é um objeto que armazena informações que podem ser alteradas.
   //O React sabe que o estado mudou e vai renderizar novamente a tela.
+
+  const [theme, setTheme] = useState('dark');
+
 
   const [posts, setPosts] = useState([
     {
@@ -30,6 +34,13 @@ function App() {
       id: Math.random(), title: 'Title#04', subtitle: 'Sub#04', likes: 50, read: true
     },
   ]);
+
+  function handleToggleTheme() {
+    setTheme((prevState) => (
+      prevState === 'dark'
+        ? 'light'
+        : 'dark'));
+  }
 
   //prevState é o estado anterior, ou seja, o estado anterior antes de atualizar o estado.
   //prevState é utilizado, para evitar inconsistências no front-end.
@@ -56,7 +67,10 @@ function App() {
 
   return (
     <>
-      <Header >
+      <Header
+        theme={theme}
+        onToggleTheme={handleToggleTheme}
+      >
         <h2>Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
@@ -68,6 +82,7 @@ function App() {
           key={post.id}
           onRemove={handleRemovePost}
           post={post}
+          theme={theme}
         />
       ))}
     </>
