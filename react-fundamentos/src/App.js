@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import Header from './Header';
 import Post from './Post';
-
 
 //Props(Propriedades) - São dados que um componente pai passa para um componente filho.
 //Props são apenas read only, ou seja, não podemos alterar o valor de uma propriedade.
@@ -9,6 +8,9 @@ import Post from './Post';
 
 //toda vez que a gente coloca um array dentro do jsx ele vai tentar pegar e por na tela
 // porém alguns formatos ele não sabe o que fazer e pode quebrar.
+
+//a context serve para que componentes filhos possam acessar o estado do componente pai.
+export const ThemeContext = createContext('dark');
 
 
 function App() {
@@ -66,9 +68,8 @@ function App() {
 
 
   return (
-    <>
+    <ThemeContext.Provider value={theme}>
       <Header
-        theme={theme}
         onToggleTheme={handleToggleTheme}
       >
         <h2>Posts da semana
@@ -82,10 +83,9 @@ function App() {
           key={post.id}
           onRemove={handleRemovePost}
           post={post}
-          theme={theme}
         />
       ))}
-    </>
+    </ThemeContext.Provider>
 
   );
 };
