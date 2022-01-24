@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
+import Button from '../Button';
 
 
 import styles from './Header.scss';
 
-import { ThemeContext } from './ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
 
 //CSS Modules - CSS que não interfere no restante do código
 //Ele cria uma hash para não gerar conflito de nomes de classes

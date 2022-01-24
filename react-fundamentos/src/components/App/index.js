@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import Post from './Post';
+import Header from '../Header';
+import Post from '../Post';
 
 import styles from './App.css';
 
-import { ThemeProvider } from './ThemeContext';
+import { ThemeProvider } from '../../context/ThemeContext';
 
 //Props(Propriedades) - São dados que um componente pai passa para um componente filho.
 //Props são apenas read only, ou seja, não podemos alterar o valor de uma propriedade.
