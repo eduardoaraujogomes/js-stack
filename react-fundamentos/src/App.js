@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Post from './Post';
 
+import styles from './App.css';
+
 import { ThemeProvider } from './ThemeContext';
 
 //Props(Propriedades) - São dados que um componente pai passa para um componente filho.
@@ -66,7 +68,7 @@ function App() {
   return (
     <ThemeProvider>
       <Header>
-        <h2>Posts da semana
+        <h2 className={styles.title}>Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
         </h2>
       </Header>
