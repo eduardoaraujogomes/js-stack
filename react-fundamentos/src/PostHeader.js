@@ -23,6 +23,6 @@ PostHeader.propTypes = {
   post: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    read: PropTypes.bool.isRequired,
+    read: PropTypes.bool,
   }).isRequired
 };
