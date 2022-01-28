@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from './styles/global';
@@ -8,10 +8,26 @@ import Layout from './components/Layout';
 import themes from './styles/themes';
 
 function App() {
+  const [theme, setTheme] = useState('dark');
+
+  //useMemo é uma função que retorna um valor, ou seja, um valor que é calculado a partir de outros valores. parecido com o useEffect, mas não é executado toda vez que o componente é renderizado.
+
+  const currentTheme = useMemo(() => {
+    return themes[theme] || themes.dark;
+  }, [theme]);
+
+  function handleToggleTheme() {
+    setTheme(prevState => prevState === 'dark' ? 'light' : 'dark');
+  }
+
+
   return (
-    <ThemeProvider theme={themes.dark}>
+    <ThemeProvider theme={currentTheme}>
       <GlobalStyle />
-      <Layout />
+      <Layout
+        onToggleTheme={handleToggleTheme}
+        selectedTheme={theme}
+      />
     </ThemeProvider>
   );
 };
