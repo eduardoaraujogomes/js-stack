@@ -8,6 +8,6 @@
     "skipLibCheck": true                                 
   },
   "include": [
-    "solid/rocketseat/src/**/*.ts"
+    "src/**/*.ts"
   ]
 }
