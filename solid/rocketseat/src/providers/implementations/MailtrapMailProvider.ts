@@ -10,7 +10,7 @@ export class MailtrapMailProvider implements IMailProvider {
       host: process.env.HOST,
       port: 2525,
       auth: {
-        user: process.env.USER,
+        user: process.env.USER_CRED,
         pass: process.env.PASSWORD,
       }
     })
